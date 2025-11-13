@@ -16,6 +16,10 @@ def extract_minecraft_item(raw_string: str) -> Tuple[Optional[str], Optional[int
     item = item_match.group(1) if item_match else None
     count = int(count_match.group(1)) if count_match else None
 
+    # NEW: remove trailing 'q'
+    if item and item.endswith("q"):
+        item = item[:-1]
+
     return item, count
 
 # -----------------------------
