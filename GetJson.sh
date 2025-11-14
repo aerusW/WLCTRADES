@@ -1,4 +1,3 @@
-francesco@CloudServices:~$ cat fetch_new_trades.sh 
 #!/bin/bash
 
 URL="http://185.206.149.19:8104/trades"
