@@ -1,6 +1,7 @@
 import base64
 import re
 import json
+import argparse
 from typing import Any, List, Tuple, Optional
 
 def decode_base64(base64_str: str) -> str:
@@ -67,7 +68,10 @@ def extract_items_from_json_file(path: str) -> List[Tuple[str, int]]:
 # Example usage
 # ----------------------------------------------------------
 if __name__ == "__main__":
-    items = extract_items_from_json_file("/home/francesco/wlc_trades.json")
+    parser = argparse.ArgumentParser(description='Short sample app')
+    parser.add_argument('--origin', action="store", dest='items', default=0)
+    args = parser.parse_args()
+    items = extract_items_from_json_file(args.items)
 
     for item, count in items:
         print(f"Found item: {item}, count: {count}")
